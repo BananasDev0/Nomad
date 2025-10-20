@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
+import { Text, View } from 'react-native';
 import EditScreenInfo from './EditScreenInfo';
 
 type ScreenContentProps = {
@@ -11,30 +10,11 @@ type ScreenContentProps = {
 
 export const ScreenContent = ({ title, path, children }: ScreenContentProps) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
-      <View style={styles.separator} />
+    <View className="flex-1 items-center justify-center bg-white">
+      <Text className="text-xl font-bold">{title}</Text>
+      <View className="w-4/5 h-px my-8 bg-gray-300" />
       <EditScreenInfo path={path} />
       {children}
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    backgroundColor: 'white',
-    flex: 1,
-    justifyContent: 'center',
-  },
-  separator: {
-    backgroundColor: '#d1d5db',
-    height: 1,
-    marginVertical: 30,
-    width: '80%',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-});
