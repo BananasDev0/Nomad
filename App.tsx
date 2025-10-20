@@ -14,7 +14,7 @@ export default function App() {
       {/* <HomeScreen/> */}
       {/* <TripScreen/> */}
       {/* <TripPreferencesScreen/> */}
-      <ItineraryScreen/>
+      <LoginScreen/>
       <StatusBar style="auto" />
     </>
   );
