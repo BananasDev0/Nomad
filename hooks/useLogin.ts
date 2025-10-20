@@ -9,57 +9,56 @@ export default function useLogin() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [registeredUsers, setRegisteredUsers] = useState<{ [key: string]: string }>({});
 
+    const handleLogin = () => {
+        if (
+        (username === 'admin' && password === 'admin') ||
+        (registeredUsers[username] && registeredUsers[username] === password)
+        ) {
+        Alert.alert('Éxito', `Bienvenido ${username}`);
+        // Aquí podrías navegar: navigation.navigate('Home');
+        } else {
+        Alert.alert('Error', 'Usuario o contraseña incorrectos');
+        }
+    };
 
-  const handleLogin = () => {
-    if (
-      (username === 'admin' && password === 'admin') ||
-      (registeredUsers[username] && registeredUsers[username] === password)
-    ) {
-      Alert.alert('Éxito', `Bienvenido ${username}`);
-      // Aquí podrías navegar: navigation.navigate('Home');
-    } else {
-      Alert.alert('Error', 'Usuario o contraseña incorrectos');
-    }
-  };
+    const handleRegister = () => {
+        if (!username || !password || !confirmPassword) {
+        Alert.alert('Error', 'Completa todos los campos');
+        return;
+        }
 
-  const handleRegister = () => {
-    if (!username || !password || !confirmPassword) {
-      Alert.alert('Error', 'Completa todos los campos');
-      return;
-    }
+        if (password !== confirmPassword) {
+        Alert.alert('Error', 'Las contraseñas no coinciden');
+        return;
+        }
 
-    if (password !== confirmPassword) {
-      Alert.alert('Error', 'Las contraseñas no coinciden');
-      return;
-    }
+        if (registeredUsers[username]) {
+        Alert.alert('Error', 'Ese usuario ya existe');
+        return;
+        }
 
-    if (registeredUsers[username]) {
-      Alert.alert('Error', 'Ese usuario ya existe');
-      return;
-    }
+        setRegisteredUsers({ ...registeredUsers, [username]: password });
+        Alert.alert('Registro exitoso', 'Ahora puedes iniciar sesión');
+        setIsLogin(true);
+        setUsername('');
+        setPassword('');
+        setConfirmPassword('');
+    };
 
-    setRegisteredUsers({ ...registeredUsers, [username]: password });
-    Alert.alert('Registro exitoso', 'Ahora puedes iniciar sesión');
-    setIsLogin(true);
-    setUsername('');
-    setPassword('');
-    setConfirmPassword('');
-  };
+    const handlePress = () => {
+        if (isLogin) handleLogin();
+        else handleRegister();
+    };
 
-  const handlePress = () => {
-    if (isLogin) handleLogin();
-    else handleRegister();
-  };
-
-  return {
-    isLogin,
-    setIsLogin,
-    username,
-    setUsername,
-    password,
-    setPassword,
-    confirmPassword,
-    setConfirmPassword,
-    handlePress
-  };
+    return {
+        isLogin,
+        setIsLogin,
+        username,
+        setUsername,
+        password,
+        setPassword,
+        confirmPassword,
+        setConfirmPassword,
+        handlePress
+    };
 }
