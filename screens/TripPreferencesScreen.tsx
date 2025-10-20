@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, ScrollView, TouchableOpacity, ImageBackground } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const preferencesData = [
   { label: "Adventure", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC1remShvn_SlUuqjKqihz8WiGrvrgwaU5NZbqQD-8352UheYtZGFnBa6cLK2ZUAiSDDAknBIvcVQHGWlCU2RIkJo2tfCw6g1yZXO5Grkn8fvCfq7a7LkSDsuqWY1gZjkgVUnacMCVBwYJspzAR6V18qEP86WQX7ArtcNwwKSIb1Ks1tQ4H8z6HtxQscDcClNJaR7yw4azQSf_Rzfe1fW3qmC2ReYXyokufVMAVQ2SlQRaJWaROmBiUOr-WoPa9llLeTMHw-zeTSDR0" },
@@ -13,6 +14,7 @@ const preferencesData = [
 ];
 
 export default function TripPreferencesScreen() {
+  const navigation = useNavigation<any>();
   const [selected, setSelected] = useState<number[]>([]);
 
   const togglePreference = (index: number) => {
@@ -20,6 +22,12 @@ export default function TripPreferencesScreen() {
       prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
     );
   };
+
+  const completeFirstOnboardingStep = () => {
+    // Logic to mark the first onboarding step as complete
+    // For example, updating user settings or navigating to the next screen
+    navigation.navigate("HomeScreen"); // Replace with actual next screen
+  }
 
   return (
     <ScrollView className="flex-1 bg-background-light dark:bg-background-dark">
@@ -70,15 +78,22 @@ export default function TripPreferencesScreen() {
         ))}
       </View>
 
+      <TouchableOpacity 
+        className="bg-[#7b3aed] rounded-xl py-4 p6 mx-4 mb-20 mt-4"
+        onPress={completeFirstOnboardingStep}
+      >
+        <Text className="text-white text-center font-bold text-lg">Upload Info</Text>
+      </TouchableOpacity>
+
       {/* Footer Buttons */}
-      <View className="sticky bottom-0 bg-background-light dark:bg-background-dark py-4 px-4 flex-row gap-2">
+      {/* <View className="sticky bottom-0 bg-background-light dark:bg-background-dark py-4 px-4 flex-row gap-2">
         <TouchableOpacity className="flex-1 h-12 bg-primary rounded-full justify-center items-center">
           <Text className="text-white font-bold text-base">Next</Text>
         </TouchableOpacity>
         <TouchableOpacity className="flex-1 h-12 border border-gray-400 rounded-full justify-center items-center">
           <Text className="text-[#0d171b] dark:text-white font-bold text-base">Skip for now</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
     </ScrollView>
   );
 }

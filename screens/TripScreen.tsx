@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Switch, TouchableOpacity } from "react-native";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useNavigation } from "@react-navigation/native";
 
 export default function TripScreen() {
+  const navigation = useNavigation<any>();
   const [tripName, setTripName] = useState("");
   const [destination, setDestination] = useState("");
   const [travelByPlane, setTravelByPlane] = useState(false);
@@ -22,6 +24,10 @@ export default function TripScreen() {
     setDepartureDate(date);
     setShowDeparturePicker(false);
   };
+
+  const sendToTripPreferencesScreen = () => {
+    navigation.navigate("TripPreferencesScreen");
+  }
 
   return (
     <SafeAreaView className="flex-1 bg-[#f6f7f8] dark:bg-[#101c22] px-5 py-6">
@@ -119,7 +125,10 @@ export default function TripScreen() {
       </View>
 
       {/* Next Button */}
-      <TouchableOpacity className="bg-[#7b3aed] rounded-xl py-4">
+      <TouchableOpacity 
+        className="bg-[#7b3aed] rounded-xl py-4"
+        onPress={sendToTripPreferencesScreen}
+        >
         <Text className="text-white text-center font-bold text-lg">Next</Text>
       </TouchableOpacity>
 
