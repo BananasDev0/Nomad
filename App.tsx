@@ -1,21 +1,17 @@
-import { ScreenContent } from 'components/ScreenContent';
-import { StatusBar } from 'expo-status-bar';
-import HomeScreen from 'screens/HomeScreen';
-import LoginScreen from 'screens/LoginScreen';
-import TripScreen from 'screens/TripScreen';
-import TripPreferencesScreen from 'screens/TripPreferencesScreen';
-import ItineraryScreen from 'screens/ItineraryScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LoginScreen from './screens/LoginScreen';
+import HomeScreen from './screens/HomeScreen';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <>
-      {/* <ScreenContent title="Home" path="App.tsx"></ScreenContent> */}
-      {/* <LoginScreen></LoginScreen> */}
-      {/* <HomeScreen/> */}
-      {/* <TripScreen/> */}
-      {/* <TripPreferencesScreen/> */}
-      <LoginScreen/>
-      <StatusBar style="auto" />
-    </>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="LoginScreen" component={LoginScreen} />
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }

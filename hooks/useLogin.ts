@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Alert } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 
 export default function useLogin() {
+    const navigation = useNavigation<any>();
     const [isLogin, setIsLogin] = useState(true);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -14,10 +16,10 @@ export default function useLogin() {
         (username === 'admin' && password === 'admin') ||
         (registeredUsers[username] && registeredUsers[username] === password)
         ) {
-        Alert.alert('Éxito', `Bienvenido ${username}`);
-        // Aquí podrías navegar: navigation.navigate('Home');
+            Alert.alert('Éxito', `Bienvenido ${username}`);
+            navigation.navigate("HomeScreen");
         } else {
-        Alert.alert('Error', 'Usuario o contraseña incorrectos');
+            Alert.alert('Error', 'Usuario o contraseña incorrectos');
         }
     };
 
