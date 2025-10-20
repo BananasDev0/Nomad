@@ -1,91 +1,87 @@
-import React, { useState } from "react";
+import React from "react";
 import { View, Text, TextInput, Switch, TouchableOpacity } from "react-native";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useNavigation } from "@react-navigation/native";
+import useTrip from "../hooks/useTrip";
 
 export default function TripScreen() {
-  const navigation = useNavigation<any>();
-  const [tripName, setTripName] = useState("");
-  const [destination, setDestination] = useState("");
-  const [travelByPlane, setTravelByPlane] = useState(false);
-  const [arrivalDate, setArrivalDate] = useState<Date | null>(null);
-  const [departureDate, setDepartureDate] = useState<Date | null>(null);
-  const [showArrivalPicker, setShowArrivalPicker] = useState(false);
-  const [showDeparturePicker, setShowDeparturePicker] = useState(false);
-  const [stayPlace, setStayPlace] = useState("");
-
-  const handleArrivalConfirm = (date: Date) => {
-    setArrivalDate(date);
-    setShowArrivalPicker(false);
-  };
-
-  const handleDepartureConfirm = (date: Date) => {
-    setDepartureDate(date);
-    setShowDeparturePicker(false);
-  };
-
-  const sendToShareAndCollaboratorsScreen = () => {
-    navigation.navigate("ShareAndCollaboratorsScreen");
-  }
+  const {
+    tripName,
+    setTripName,
+    destination,
+    setDestination,
+    travelByPlane,
+    setTravelByPlane,
+    arrivalDate,
+    departureDate,
+    showArrivalPicker,
+    setShowArrivalPicker,
+    showDeparturePicker,
+    setShowDeparturePicker,
+    stayPlace,
+    setStayPlace,
+    handleArrivalConfirm,
+    handleDepartureConfirm,
+    sendToShareAndCollaboratorsScreen
+  } = useTrip();
 
   return (
-    <SafeAreaView className="flex-1 bg-[#f6f7f8] dark:bg-[#101c22] px-5 py-6">
-      <Text className="text-2xl font-bold text-center text-[#7b3aed] mb-6">
+    <SafeAreaView className="flex-1 bg-white px-5 py-6">
+      <Text className="text-2xl font-bold text-center text-[#1F2937] mb-6">
         Create Your Trip ✈️
       </Text>
 
       {/* Trip Name */}
       <View className="mb-4">
-        <Text className="text-base font-semibold mb-2 text-gray-700 dark:text-gray-200">
+        <Text className="text-base font-semibold mb-2 text-[#4B5563]">
           Trip Name
         </Text>
         <TextInput
           placeholder="e.g., Summer in Paris"
-          placeholderTextColor="#9ca3af"
+          placeholderTextColor="#9CA3AF"
           value={tripName}
           onChangeText={setTripName}
-          className="bg-white dark:bg-[#1b2730] border border-gray-300 dark:border-gray-600 rounded-xl p-4 text-base text-gray-800 dark:text-gray-100"
+          className="bg-[#F3F4F6] border border-[#D1D5DB] rounded-xl p-4 text-base text-[#374151]"
         />
       </View>
 
       {/* Destination */}
       <View className="mb-4">
-        <Text className="text-base font-semibold mb-2 text-gray-700 dark:text-gray-200">
+        <Text className="text-base font-semibold mb-2 text-[#4B5563]">
           Destination
         </Text>
         <TextInput
           placeholder="Search for a city or country"
-          placeholderTextColor="#9ca3af"
+          placeholderTextColor="#9CA3AF"
           value={destination}
           onChangeText={setDestination}
-          className="bg-white dark:bg-[#1b2730] border border-gray-300 dark:border-gray-600 rounded-xl p-4 text-base text-gray-800 dark:text-gray-100"
+          className="bg-[#F3F4F6] border border-[#D1D5DB] rounded-xl p-4 text-base text-[#374151]"
         />
       </View>
 
       {/* Switch */}
       <View className="flex-row items-center justify-between mb-6">
-        <Text className="text-base font-semibold text-gray-700 dark:text-gray-200">
+        <Text className="text-base font-semibold text-[#4B5563]">
           Travel by Plane
         </Text>
         <Switch
           value={travelByPlane}
           onValueChange={setTravelByPlane}
-          trackColor={{ false: "#ccc", true: "#7b3aed" }}
-          thumbColor="#fff"
+          trackColor={{ false: "#ccc", true: "#7C3AED" }}
+          thumbColor="#FFFFFF"
         />
       </View>
 
       {/* Arrival */}
       <View className="mb-4">
-        <Text className="text-base font-semibold mb-2 text-gray-700 dark:text-gray-200">
+        <Text className="text-base font-semibold mb-2 text-[#4B5563]">
           Arrival (Local Time)
         </Text>
         <TouchableOpacity
-          className="bg-white dark:bg-[#1b2730] border border-gray-300 dark:border-gray-600 rounded-xl p-4"
+          className="bg-[#F3F4F6] border border-[#D1D5DB] rounded-xl p-4"
           onPress={() => setShowArrivalPicker(true)}
         >
-          <Text className="text-gray-800 dark:text-gray-100">
+          <Text className="text-[#374151]">
             {arrivalDate
               ? arrivalDate.toLocaleString()
               : "Select arrival date and time"}
@@ -95,14 +91,14 @@ export default function TripScreen() {
 
       {/* Departure */}
       <View className="mb-4">
-        <Text className="text-base font-semibold mb-2 text-gray-700 dark:text-gray-200">
+        <Text className="text-base font-semibold mb-2 text-[#4B5563]">
           Departure (Local Time)
         </Text>
         <TouchableOpacity
-          className="bg-white dark:bg-[#1b2730] border border-gray-300 dark:border-gray-600 rounded-xl p-4"
+          className="bg-[#F3F4F6] border border-[#D1D5DB] rounded-xl p-4"
           onPress={() => setShowDeparturePicker(true)}
         >
-          <Text className="text-gray-800 dark:text-gray-100">
+          <Text className="text-[#374151]">
             {departureDate
               ? departureDate.toLocaleString()
               : "Select departure date and time"}
@@ -112,23 +108,23 @@ export default function TripScreen() {
 
       {/* Stay Place */}
       <View className="mb-6">
-        <Text className="text-base font-semibold mb-2 text-gray-700 dark:text-gray-200">
+        <Text className="text-base font-semibold mb-2 text-[#4B5563]">
           Stay Place
         </Text>
         <TextInput
           placeholder="Search for a hotel or address"
-          placeholderTextColor="#9ca3af"
+          placeholderTextColor="#9CA3AF"
           value={stayPlace}
           onChangeText={setStayPlace}
-          className="bg-white dark:bg-[#1b2730] border border-gray-300 dark:border-gray-600 rounded-xl p-4 text-base text-gray-800 dark:text-gray-100"
+          className="bg-[#F3F4F6] border border-[#D1D5DB] rounded-xl p-4 text-base text-[#374151]"
         />
       </View>
 
       {/* Next Button */}
       <TouchableOpacity 
-        className="bg-[#7b3aed] rounded-xl py-4"
+        className="bg-[#7C3AED] rounded-xl py-4"
         onPress={sendToShareAndCollaboratorsScreen}
-        >
+      >
         <Text className="text-white text-center font-bold text-lg">Next</Text>
       </TouchableOpacity>
 
