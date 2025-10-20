@@ -25,8 +25,8 @@ export default function TripScreen() {
     setShowDeparturePicker(false);
   };
 
-  const sendToTripPreferencesScreen = () => {
-    navigation.navigate("TripPreferencesScreen");
+  const sendToShareAndCollaboratorsScreen = () => {
+    navigation.navigate("ShareAndCollaboratorsScreen");
   }
 
   return (
@@ -127,7 +127,7 @@ export default function TripScreen() {
       {/* Next Button */}
       <TouchableOpacity 
         className="bg-[#7b3aed] rounded-xl py-4"
-        onPress={sendToTripPreferencesScreen}
+        onPress={sendToShareAndCollaboratorsScreen}
         >
         <Text className="text-white text-center font-bold text-lg">Next</Text>
       </TouchableOpacity>

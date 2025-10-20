@@ -6,6 +6,7 @@ import UserScreen from 'screens/UserScreen';
 import TripScreen from 'screens/TripScreen';
 import TripPreferencesScreen from 'screens/TripPreferencesScreen';
 import ItineraryScreen from 'screens/ItineraryScreen';
+import ShareAndCollaboratorsScreen from 'screens/ShareAndCollaboratorsScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,7 @@ export default function App() {
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="TripScreen" component={TripScreen} />
+        <Stack.Screen name="ShareAndCollaboratorsScreen" component={ShareAndCollaboratorsScreen} />
         <Stack.Screen name="TripPreferencesScreen" component={TripPreferencesScreen} />
         <Stack.Screen name="ItineraryScreen" component={ItineraryScreen} />
         <Stack.Screen name="UserScreen" component={UserScreen} />
