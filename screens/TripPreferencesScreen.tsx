@@ -36,7 +36,7 @@ export default function TripPreferencesScreen() {
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-white px-5 py-6">
+    <SafeAreaView className="flex-1 bg-white pt-6">
       <ScrollView className="flex-1">
         {/* Header */}
         <View className="relative flex-row items-center p-4">
@@ -50,18 +50,8 @@ export default function TripPreferencesScreen() {
             What do you prefer? 🎯
           </Text>
         </View>
-
-        {/* Steps */}
-        {/*<View className="flex-row justify-center gap-2 py-5">
-          {preferencesData.slice(0, 5).map((_, i) => (
-            <View
-              key={i}
-              className={`h-2 w-2 rounded-full ${
-                i === 1 ? "bg-primary" : "bg-[#cfdfe7] dark:bg-slate-700"
-              }`}
-            />
-          ))}
-        </View> */}
+        
+        {/*Step*/}
         <View className="h-2 bg-gray-200 rounded-full mx-6 my-4 overflow-hidden">
           <View
             className="h-2 bg-[#003c49] rounded-full"
