@@ -67,7 +67,7 @@ export default function TripScreen() {
         <Switch
           value={travelByPlane}
           onValueChange={setTravelByPlane}
-          trackColor={{ false: "#ccc", true: "#7C3AED" }}
+          trackColor={{ false: "#ccc", true: "#003c49" }}
           thumbColor="#FFFFFF"
         />
       </View>
@@ -122,7 +122,7 @@ export default function TripScreen() {
 
       {/* Next Button */}
       <TouchableOpacity 
-        className="bg-[#7C3AED] rounded-xl py-4"
+        className="bg-[#003c49] rounded-xl py-4"
         onPress={sendToShareAndCollaboratorsScreen}
       >
         <Text className="text-white text-center font-bold text-lg">Next</Text>

@@ -79,7 +79,7 @@ export default function TripPreferencesScreen() {
       </View>
 
       <TouchableOpacity 
-        className="bg-[#7b3aed] rounded-xl py-4 p6 mx-4 mb-20 mt-4"
+        className="bg-[#003c49] rounded-xl py-4 p6 mx-4 mb-20 mt-4"
         onPress={completeFirstOnboardingStep}
       >
         <Text className="text-white text-center font-bold text-lg">Upload Info</Text>

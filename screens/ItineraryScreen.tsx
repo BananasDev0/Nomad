@@ -90,7 +90,7 @@ export default function ItineraryScreen() {
                     <MaterialIcons
                       name={act.icon as any}
                       size={24}
-                      color="#800080"
+                      color="#003c49"
                     />
                   </View>
                   <View className="flex-1">
@@ -118,7 +118,7 @@ export default function ItineraryScreen() {
       <TouchableOpacity
         className="absolute bottom-24 right-4 rounded-full flex-row items-center justify-center shadow-lg"
         style={{
-          backgroundColor: "#800080", // morado
+          backgroundColor: "#003c49", // morado
           height: 64,   // 16 * 4 = 64
           width: 192,   // 48 * 4 = 192
           paddingHorizontal: 16, // ajuste fino del espacio entre icono y texto

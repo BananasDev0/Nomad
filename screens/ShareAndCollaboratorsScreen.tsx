@@ -47,7 +47,7 @@ export default function AddFriendsScreen() {
         />
         <TouchableOpacity
           onPress={handleAddFriend}
-          className="ml-3 bg-[#7C3AED] px-4 py-3 rounded-xl"
+          className="ml-3 bg-[#003c49] px-4 py-3 rounded-xl"
         >
           <Text className="text-white text-lg font-bold">➕</Text>
         </TouchableOpacity>
@@ -63,7 +63,7 @@ export default function AddFriendsScreen() {
             <TouchableOpacity
               onPress={() => handleSelectFriend(item)}
               className={`p-3 rounded-xl mb-2 ${
-                isSelected ? "bg-[#7C3AED]" : "bg-[#F3F4F6]"
+                isSelected ? "bg-[#003c49]" : "bg-[#F3F4F6]"
               } border border-[#D1D5DB]`}
             >
               <View className="flex-row justify-between items-center">
@@ -80,7 +80,7 @@ export default function AddFriendsScreen() {
       {/* Create trip button */}
       <TouchableOpacity
         className={`mt-6 p-4 rounded-2xl items-center mb-10 ${
-          selectedFriend ? "bg-[#7C3AED]" : "bg-[#D1D5DB]"
+          selectedFriend ? "bg-[#003c49]" : "bg-[#D1D5DB]"
         }`}
         disabled={!selectedFriend}
         onPress={() => { navigation.navigate("TripPreferencesScreen"); }}
