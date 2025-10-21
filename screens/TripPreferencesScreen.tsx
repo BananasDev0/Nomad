@@ -32,7 +32,7 @@ export default function TripPreferencesScreen() {
   const completeFirstOnboardingStep = () => {
     // Logic to mark the first onboarding step as complete
     // For example, updating user settings or navigating to the next screen
-    navigation.navigate("HomeScreen"); // Replace with actual next screen
+    navigation.navigate("ShareScreen"); // Replace with actual next screen
   }
 
   return (

@@ -7,6 +7,7 @@ import TripScreen from 'screens/TripScreen';
 import TripPreferencesScreen from 'screens/TripPreferencesScreen';
 import ItineraryScreen from 'screens/ItineraryScreen';
 import ShareAndCollaboratorsScreen from 'screens/ShareAndCollaboratorsScreen';
+import ShareLinkScreenFun from 'screens/ShareScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +23,7 @@ export default function App() {
         <Stack.Screen name="TripScreen" component={TripScreen} />
         <Stack.Screen name="ShareAndCollaboratorsScreen" component={ShareAndCollaboratorsScreen} />
         <Stack.Screen name="TripPreferencesScreen" component={TripPreferencesScreen} />
+        <Stack.Screen name="ShareScreen" component={ShareLinkScreenFun} />
         <Stack.Screen name="ItineraryScreen" component={ItineraryScreen} />
         <Stack.Screen name="UserScreen" component={UserScreen} />
       </Stack.Navigator>
