@@ -12,7 +12,7 @@ export default function HomeScreen() {
       <View className="flex-row items-center justify-between mb-4">
         <Text className="text-2xl font-bold text-[#1F2937]">Your Trips</Text>
         <TouchableOpacity 
-          className="bg-[#7C3AED] rounded-full w-12 h-12 items-center justify-center"
+          className="bg-[#003c49] rounded-full w-12 h-12 items-center justify-center"
           onPress={sendToUserScreen}
         >
           <MaterialIcons name="person" size={28} color="#FFFFFF" />
@@ -31,7 +31,7 @@ export default function HomeScreen() {
 
       {/* Tabs */}
       <View className="flex-row rounded-lg h-10 p-1 mb-4">
-        <TouchableOpacity className="flex-1 rounded-md bg-[#7C3AED] justify-center items-center shadow-sm">
+        <TouchableOpacity className="flex-1 rounded-md bg-[#003c49] justify-center items-center shadow-sm">
           <Text className="text-white text-sm font-medium">Upcoming</Text>
         </TouchableOpacity>
         <TouchableOpacity className="flex-1 justify-center items-center">
@@ -72,7 +72,7 @@ export default function HomeScreen() {
 
       {/* Floating Action Button */}
       <TouchableOpacity 
-        className="absolute bottom-6 right-6 w-16 h-16 rounded-full bg-[#7C3AED] items-center justify-center shadow-lg"
+        className="absolute bottom-6 right-6 w-16 h-16 rounded-full bg-[#003c49] items-center justify-center shadow-lg"
         onPress={sendToAddTrip}
       >
         <MaterialIcons name="add" size={32} color="#FFFFFF" />
