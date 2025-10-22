@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, TextInput, TouchableOpacity, FlatList, Pressable } from "react-native";
-import useShareAndCollaborators from "../hooks/useShareAndCollaborators";
+import useShareAndCollaborators from "../../hooks/useShareAndCollaborators";
 import { ChevronLeft } from "lucide-react-native";
 import useBasicNavigations from "hooks/useBasicNavigations";
 import { SafeAreaView } from "react-native-safe-area-context";

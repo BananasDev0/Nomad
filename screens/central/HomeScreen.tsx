@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TextInput, ImageBackground, Image, TouchableOpacity, ScrollView, Pressable } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-import useHome from "../hooks/useHome";
+import useHome from "../../hooks/useHome";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeScreen() {

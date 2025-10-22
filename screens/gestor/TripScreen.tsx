@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TextInput, Switch, TouchableOpacity, Pressable } from "react-native";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { SafeAreaView } from "react-native-safe-area-context";
-import useTrip from "../hooks/useTrip";
+import useTrip from "../../hooks/useTrip";
 import useBasicNavigations from "hooks/useBasicNavigations";
 import { ChevronLeft } from "lucide-react-native";
 

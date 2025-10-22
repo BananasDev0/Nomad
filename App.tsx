@@ -1,13 +1,13 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import LoginScreen from './screens/LoginScreen';
-import HomeScreen from './screens/HomeScreen';
-import UserScreen from 'screens/UserScreen';
-import TripScreen from 'screens/TripScreen';
-import TripPreferencesScreen from 'screens/TripPreferencesScreen';
-import ItineraryScreen from 'screens/ItineraryScreen';
-import ShareAndCollaboratorsScreen from 'screens/ShareAndCollaboratorsScreen';
-import ShareLinkScreenFun from 'screens/ShareScreen';
+import LoginScreen from './screens/sign/LoginScreen';
+import HomeScreen from './screens/central/HomeScreen';
+import UserScreen from 'screens/central/UserScreen';
+import TripScreen from 'screens/gestor/TripScreen';
+import TripPreferencesScreen from 'screens/gestor/TripPreferencesScreen';
+import ItineraryScreen from 'screens/central/ItineraryScreen';
+import ShareAndCollaboratorsScreen from 'screens/gestor/ShareAndCollaboratorsScreen';
+import ShareLinkScreenFun from 'screens/gestor/ShareScreen';
 
 const Stack = createNativeStackNavigator();
 
