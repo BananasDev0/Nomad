@@ -1,9 +1,8 @@
 {
   "expo": {
-    "name": "my-expo-app",
-    "slug": "my-expo-app",
+    "name": "nomad",
+    "slug": "nomad",
     "version": "1.0.0",
-
     "web": {
       "favicon": "./assets/favicon.png"
     },
@@ -15,7 +14,7 @@
     "plugins": [],
 
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/nomad_icon.png",
 
     "userInterfaceStyle": "light",
 
