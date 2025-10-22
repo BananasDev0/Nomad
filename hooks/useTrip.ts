@@ -11,6 +11,7 @@ export default function useTrip(){
     const [showArrivalPicker, setShowArrivalPicker] = useState(false);
     const [showDeparturePicker, setShowDeparturePicker] = useState(false);
     const [stayPlace, setStayPlace] = useState("");
+    const [currentStep] = useState(1);
     
     const handleArrivalConfirm = (date: Date) => {
         setArrivalDate(date);
@@ -43,6 +44,7 @@ export default function useTrip(){
         setStayPlace,
         handleArrivalConfirm,
         handleDepartureConfirm,
-        sendToShareAndCollaboratorsScreen
+        sendToShareAndCollaboratorsScreen,
+        currentStep
     };
 }

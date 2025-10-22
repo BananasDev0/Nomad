@@ -1,8 +1,10 @@
 import React from "react";
-import { View, Text, TextInput, Switch, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, Switch, TouchableOpacity, Pressable } from "react-native";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { SafeAreaView } from "react-native-safe-area-context";
-import useTrip from "../hooks/useTrip";
+import useTrip from "../../hooks/useTrip";
+import useBasicNavigations from "hooks/useBasicNavigations";
+import { ChevronLeft } from "lucide-react-native";
 
 export default function TripScreen() {
   const {
@@ -22,14 +24,33 @@ export default function TripScreen() {
     setStayPlace,
     handleArrivalConfirm,
     handleDepartureConfirm,
-    sendToShareAndCollaboratorsScreen
+    sendToShareAndCollaboratorsScreen,
+    currentStep
   } = useTrip();
+  const { navigateToback } = useBasicNavigations();
 
   return (
     <SafeAreaView className="flex-1 bg-white px-5 py-6">
-      <Text className="text-2xl font-bold text-center text-[#1F2937] mb-6">
-        Create Your Trip ✈️
-      </Text>
+      {/* Header */}
+      <View className="relative flex-row items-center p-4">
+        {/* Botón de atrás */}
+        <Pressable onPress={navigateToback} className="z-10">
+          <ChevronLeft size={28} color="#0d171b" />
+        </Pressable>
+
+        {/* Título centrado */}
+        <Text className="absolute left-0 right-0 text-center text-2xl font-bold text-[#1F2937]">
+          Create Your Trip ✈️
+        </Text>
+      </View>
+
+      {/*Step*/}
+      <View className="h-2 bg-gray-200 rounded-full mx-6 my-4 overflow-hidden">
+        <View
+          className="h-2 bg-[#003c49] rounded-full"
+          style={{ width: `${(currentStep / 4) * 100}%` }}
+        />
+      </View>
 
       {/* Trip Name */}
       <View className="mb-4">

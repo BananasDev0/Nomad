@@ -7,3 +7,13 @@ Paleta de Colores:
     Blanco: #FFFFFF → fondo y botones de texto
 
 ----------------------------------------------------
+
+Como correr la aplicacion
+
+    npm install // instala las dependencias
+    npx expo start -c // Este cmd corre la aplicacion y borra el cache de expo
+
+Contrasena para Testeo
+
+    user: admin
+    password: admin

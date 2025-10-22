@@ -3,7 +3,6 @@ import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-// JSON con los días y actividades
 const itinerary = [
   {
     day: "Monday, June 10",
@@ -50,13 +49,13 @@ const itinerary = [
 
 export default function ItineraryScreen() {
   return (
-    <SafeAreaView className="flex-1 bg-background-light dark:bg-background-dark">
+    <SafeAreaView className="flex-1 bg-[#FFFFFF]">
       {/* Top App Bar */}
-      <View className="flex-row items-center justify-between bg-background-light dark:bg-background-dark p-4 border-b border-slate-200 dark:border-slate-800">
+      <View className="flex-row items-center justify-between bg-[#FFFFFF] p-4 border-b border-[#D1D5DB]">
         <TouchableOpacity>
-          <MaterialIcons name="arrow-back" size={24} color="#4A4A4A" />
+          <MaterialIcons name="arrow-back" size={24} color="#1F2937" />
         </TouchableOpacity>
-        <Text className="text-lg font-bold flex-1 text-center text-text-light dark:text-text-dark">
+        <Text className="text-lg font-bold flex-1 text-center text-[#1F2937]">
           Parisian Adventure
         </Text>
         <View className="w-6" />
@@ -65,28 +64,28 @@ export default function ItineraryScreen() {
       {/* Main Content */}
       <ScrollView className="flex-1 px-4 pb-28">
         <View className="pt-6 pb-4">
-          <Text className="text-2xl font-bold text-text-light dark:text-text-dark">
+          <Text className="text-2xl font-bold text-[#1F2937]">
             Paris, France
           </Text>
-          <Text className="text-sm text-slate-500 dark:text-slate-400 pt-1">
+          <Text className="text-sm text-[#4B5563] pt-1">
             June 10 - June 15, 2024
           </Text>
         </View>
 
-        {/* Iterar días */}
+        {/* Days */}
         {itinerary.map((dayItem, idx) => (
           <View
             key={idx}
-            className="bg-white dark:bg-slate-900 rounded-xl p-4 shadow mb-6"
+            className="bg-[#FFFFFF] rounded-xl p-4 shadow-sm border border-[#F3F4F6] mb-6"
           >
-            <Text className="text-lg font-bold text-text-light dark:text-text-dark mb-4">
+            <Text className="text-lg font-bold text-[#1F2937] mb-4">
               {dayItem.day}
             </Text>
 
             {dayItem.activities.map((act, i) => (
               <View key={i}>
                 <View className="flex-row items-center gap-4 mb-2">
-                  <View className="bg-primary/20 p-3 rounded-lg">
+                  <View className="bg-[#003c49]/10 p-3 rounded-lg">
                     <MaterialIcons
                       name={act.icon as any}
                       size={24}
@@ -94,20 +93,20 @@ export default function ItineraryScreen() {
                     />
                   </View>
                   <View className="flex-1">
-                    <Text className="text-base font-medium text-text-light dark:text-text-dark">
+                    <Text className="text-base font-medium text-[#1F2937]">
                       {act.title}
                     </Text>
-                    <Text className="text-sm text-slate-500 dark:text-slate-400">
+                    <Text className="text-sm text-[#4B5563]">
                       {act.start} {act.end ? `- ${act.end}` : ""}
                     </Text>
                   </View>
                   <TouchableOpacity>
-                    <Text className="text-primary text-sm font-medium">
+                    <Text className="text-[#003c49] text-sm font-medium">
                       View Details
                     </Text>
                   </TouchableOpacity>
                 </View>
-                <View className="border-t border-slate-100 dark:border-slate-800 my-2" />
+                <View className="border-t border-[#F3F4F6] my-2" />
               </View>
             ))}
           </View>
@@ -118,10 +117,10 @@ export default function ItineraryScreen() {
       <TouchableOpacity
         className="absolute bottom-24 right-4 rounded-full flex-row items-center justify-center shadow-lg"
         style={{
-          backgroundColor: "#003c49", // morado
-          height: 64,   // 16 * 4 = 64
-          width: 192,   // 48 * 4 = 192
-          paddingHorizontal: 16, // ajuste fino del espacio entre icono y texto
+          backgroundColor: "#003c49",
+          height: 64,
+          width: 192,
+          paddingHorizontal: 16,
         }}
       >
         <MaterialIcons name="share" size={24} color="white" />

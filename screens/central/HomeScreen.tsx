@@ -1,13 +1,14 @@
 import React from "react";
 import { View, Text, TextInput, ImageBackground, Image, TouchableOpacity, ScrollView, Pressable } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-import useHome from "../hooks/useHome";
+import useHome from "../../hooks/useHome";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
   const { sendToAddTrip, sendToUserScreen, sendToItineraryScreen, TRIPS } = useHome();
 
   return (
-    <View className="flex-1 bg-white px-4 pt-10 pb-14">
+    <SafeAreaView className="flex-1 bg-white px-4 pt-5 mb-2">
       {/* Header */}
       <View className="flex-row items-center justify-between mb-4">
         <Text className="text-2xl font-bold text-[#1F2937]">Your Trips</Text>
@@ -77,6 +78,6 @@ export default function HomeScreen() {
       >
         <MaterialIcons name="add" size={32} color="#FFFFFF" />
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 }

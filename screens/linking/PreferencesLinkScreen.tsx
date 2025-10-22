@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import { View, Text, ScrollView, TouchableOpacity, ImageBackground } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, ImageBackground, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import useBasicNavigations from "../../hooks/useBasicNavigations";
+import { ChevronLeft } from "lucide-react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const preferencesData = [
   { label: "Adventure", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC1remShvn_SlUuqjKqihz8WiGrvrgwaU5NZbqQD-8352UheYtZGFnBa6cLK2ZUAiSDDAknBIvcVQHGWlCU2RIkJo2tfCw6g1yZXO5Grkn8fvCfq7a7LkSDsuqWY1gZjkgVUnacMCVBwYJspzAR6V18qEP86WQX7ArtcNwwKSIb1Ks1tQ4H8z6HtxQscDcClNJaR7yw4azQSf_Rzfe1fW3qmC2ReYXyokufVMAVQ2SlQRaJWaROmBiUOr-WoPa9llLeTMHw-zeTSDR0" },
@@ -13,8 +16,11 @@ const preferencesData = [
   { label: "Budget-Friendly", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBaJ7BnOpWH9ldC_zuhRvbdVv_C-FscHeV6P1i5Yu8IOMXVRtf4iUonK8TKKFT1ejytMFj2yqImpJuHMZhzFb4oVIDHRbtURNfwg6hVBoM6caTwD4UYs80iF-tHimLeolvDswuXyQeci-q5y7TYj8UUh-0ytuj-YWg-yqpEOSKh-suIjJm1TU5HSsmn05kQ8hZb1m5JHXTjlrPbKq78Mu2DLngrlZktdAtK47ySZxNHf2twOGFDPs_2BFGINSiGk6V9zrNsOHCPGI3x" },
 ];
 
-export default function TripPreferencesScreen() {
+export default function PreferencesLinkScreen() {
+  const { navigateToback } = useBasicNavigations();
   const navigation = useNavigation<any>();
+  const [currentStep] = useState(3);
+
   const [selected, setSelected] = useState<number[]>([]);
 
   const togglePreference = (index: number) => {
@@ -23,77 +29,65 @@ export default function TripPreferencesScreen() {
     );
   };
 
-  const completeFirstOnboardingStep = () => {
-    // Logic to mark the first onboarding step as complete
-    // For example, updating user settings or navigating to the next screen
-    navigation.navigate("HomeScreen"); // Replace with actual next screen
+  const sendToGrateFulness = () => {
+    navigation.navigate("GratefulnessScreen");
   }
 
   return (
-    <ScrollView className="flex-1 bg-background-light dark:bg-background-dark">
-      {/* Header */}
-      <View className="flex-row items-center p-4 justify-between">
-        <TouchableOpacity>
-          <Text className="text-[#0d171b] dark:text-white text-2xl">←</Text>
-        </TouchableOpacity>
-        <Text className="text-lg font-bold text-center text-[#0d171b] dark:text-white flex-1">
-          What are you in the mood for?
-        </Text>
-        <View className="w-8" />
-      </View>
+    <SafeAreaView className="flex-1 bg-white pt-6">
+      <ScrollView className="flex-1">
+        {/* Header */}
+        <View className="relative flex-row items-center p-4">
+          {/* Botón de atrás */}
+          <Pressable onPress={navigateToback} className="z-10">
+            <ChevronLeft size={28} color="#0d171b" />
+          </Pressable>
 
-      {/* Steps */}
-      <View className="flex-row justify-center gap-2 py-5">
-        {preferencesData.slice(0, 5).map((_, i) => (
+          {/* Título centrado */}
+          <Text className="absolute left-0 right-0 text-center text-2xl font-bold text-[#1F2937]">
+            What do you prefer? 🎯
+          </Text>
+        </View>
+        
+        {/*Step*/}
+        <View className="h-2 bg-gray-200 rounded-full mx-6 my-4 overflow-hidden">
           <View
-            key={i}
-            className={`h-2 w-2 rounded-full ${
-              i === 1 ? "bg-primary" : "bg-[#cfdfe7] dark:bg-slate-700"
-            }`}
+            className="h-2 bg-[#003c49] rounded-full"
+            style={{ width: `${(currentStep / 4) * 100}%` }}
           />
-        ))}
-      </View>
+        </View>
 
-      {/* Preferences Grid */}
-      <View className="flex-row flex-wrap justify-center gap-4 p-4">
-        {preferencesData.map((pref, index) => (
-          <TouchableOpacity
-            key={index}
-            onPress={() => togglePreference(index)}
-            className="relative rounded-xl overflow-hidden w-[158px] h-[158px]"
-          >
-            <ImageBackground
-              source={{ uri: pref.image }}
-              className="flex-1 justify-end p-4"
-              imageStyle={{ borderRadius: 20 }}
+        {/* Preferences Grid */}
+        <View className="flex-row flex-wrap justify-center gap-4 p-4">
+          {preferencesData.map((pref, index) => (
+            <TouchableOpacity
+              key={index}
+              onPress={() => togglePreference(index)}
+              className="relative rounded-xl overflow-hidden w-[158px] h-[158px]"
             >
-              <View
-                className={`absolute inset-0 bg-black/40 ${
-                  selected.includes(index) ? "border-4 border-primary" : ""
-                }`}
-              />
-              <Text className="text-white text-base font-bold">{pref.label}</Text>
-            </ImageBackground>
-          </TouchableOpacity>
-        ))}
-      </View>
+              <ImageBackground
+                source={{ uri: pref.image }}
+                className="flex-1 justify-end p-4"
+                imageStyle={{ borderRadius: 20 }}
+              >
+                <View
+                  className={`absolute inset-0 bg-black/40 ${
+                    selected.includes(index) ? "border-4 border-primary" : ""
+                  }`}
+                />
+                <Text className="text-white text-base font-bold">{pref.label}</Text>
+              </ImageBackground>
+            </TouchableOpacity>
+          ))}
+        </View>
 
-      <TouchableOpacity 
-        className="bg-[#003c49] rounded-xl py-4 p6 mx-4 mb-20 mt-4"
-        onPress={completeFirstOnboardingStep}
-      >
-        <Text className="text-white text-center font-bold text-lg">Upload Info</Text>
-      </TouchableOpacity>
-
-      {/* Footer Buttons */}
-      {/* <View className="sticky bottom-0 bg-background-light dark:bg-background-dark py-4 px-4 flex-row gap-2">
-        <TouchableOpacity className="flex-1 h-12 bg-primary rounded-full justify-center items-center">
-          <Text className="text-white font-bold text-base">Next</Text>
+        <TouchableOpacity 
+          className="bg-[#003c49] rounded-xl py-4 p6 mx-4 mt-4"
+          onPress={sendToGrateFulness}
+        >
+          <Text className="text-white text-center font-bold text-lg">Upload Info</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="flex-1 h-12 border border-gray-400 rounded-full justify-center items-center">
-          <Text className="text-[#0d171b] dark:text-white font-bold text-base">Skip for now</Text>
-        </TouchableOpacity>
-      </View> */}
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 }

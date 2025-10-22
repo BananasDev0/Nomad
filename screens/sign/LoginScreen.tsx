@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
-import useLogin from '../hooks/useLogin';
+import useLogin from '../../hooks/useLogin';
 
 export default function LoginScreen() {
   const {

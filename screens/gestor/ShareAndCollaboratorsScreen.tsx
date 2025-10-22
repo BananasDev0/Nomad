@@ -1,6 +1,9 @@
 import React from "react";
-import { View, Text, TextInput, TouchableOpacity, FlatList } from "react-native";
-import useShareAndCollaborators from "../hooks/useShareAndCollaborators";
+import { View, Text, TextInput, TouchableOpacity, FlatList, Pressable } from "react-native";
+import useShareAndCollaborators from "../../hooks/useShareAndCollaborators";
+import { ChevronLeft } from "lucide-react-native";
+import useBasicNavigations from "hooks/useBasicNavigations";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function AddFriendsScreen() {
   const {
@@ -14,12 +17,31 @@ export default function AddFriendsScreen() {
     selectedFriend,
     handleAddFriend,
     handleSelectFriend,
+    currentStep
   } = useShareAndCollaborators();
+  const { navigateToback } = useBasicNavigations();
 
   return (
-    <View className="flex-1 bg-white p-5">
+    <SafeAreaView className="flex-1 bg-white p-5">
       {/* Header */}
-      <Text className="text-[#1F2937] text-2xl font-bold mb-4 mt-5">Who are you?</Text>
+      <View className="relative flex-row items-center p-4">
+        {/* Botón de atrás */}
+        <Pressable onPress={navigateToback} className="z-10">
+          <ChevronLeft size={28} color="#0d171b" />
+        </Pressable>
+
+        {/* Título centrado */}
+        <Text className="absolute left-0 right-0 text-center text-2xl font-bold text-[#1F2937]">
+          Who are you? 👤
+        </Text>
+      </View>
+      {/*Step*/}
+      <View className="h-2 bg-gray-200 rounded-full mx-6 my-4 overflow-hidden">
+        <View
+          className="h-2 bg-[#003c49] rounded-full"
+          style={{ width: `${(currentStep / 4) * 100}%` }}
+        />
+      </View>
       <Text className="text-[#4B5563] text-base mb-6">
         <Text className="font-semibold">{count}</Text> friends have joined Nomad!
       </Text>
@@ -89,6 +111,6 @@ export default function AddFriendsScreen() {
           {selectedFriend ? "Create Trip" : "Select who you are first"}
         </Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 }

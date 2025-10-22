@@ -3,6 +3,7 @@ import { useState } from "react";
 
 export default function useShareAndCollaborators() {
     const navigation = useNavigation<any>();
+    const [currentStep] = useState(2);
     const [count, setCount] = useState(1);
     const [tripOwner] = useState("Roel Calvillo Ramirez");
     const [search, setSearch] = useState("");
@@ -43,5 +44,6 @@ export default function useShareAndCollaborators() {
         handleAddFriend,
         handleSelectFriend,
         filteredFriends,
+        currentStep
     };
 }
