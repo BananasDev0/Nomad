@@ -12,7 +12,8 @@ export default function PersonLinkScreen() {
     filteredFriends,
     selectedFriend,
     handleSelectFriend,
-    currentStep
+    currentStep,
+    takenFriends
   } = useLinking();
 
   return (
@@ -54,23 +55,30 @@ export default function PersonLinkScreen() {
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => {
           const isSelected = item === selectedFriend;
+          const isTaken = takenFriends.includes(item); // <--- importante
+
           return (
             <TouchableOpacity
               onPress={() => handleSelectFriend(item)}
               className={`p-3 rounded-xl mb-2 ${
                 isSelected ? "bg-[#003c49]" : "bg-[#F3F4F6]"
               } border border-[#D1D5DB]`}
+              disabled={isTaken} // deshabilita si está tomado
             >
               <View className="flex-row justify-between items-center">
-                <Text className={`${isSelected ? "text-white" : "text-[#374151]"} text-base`}>
+                <Text
+                  className={`${isSelected ? "text-white" : isTaken ? "text-gray-400" : "text-[#374151]"} text-base`}
+                >
                   {item}
                 </Text>
                 {isSelected && <Text className="text-white text-sm">You ✅</Text>}
+                {isTaken && !isSelected && <Text className="text-gray-400 text-sm">Taken ❌</Text>}
               </View>
             </TouchableOpacity>
           );
         }}
       />
+
 
       {/* Create trip button */}
       <TouchableOpacity
