@@ -1,12 +1,9 @@
 import React from "react";
 import { View, Text, TextInput, TouchableOpacity, FlatList, Pressable } from "react-native";
-import { ChevronLeft } from "lucide-react-native";
-import useBasicNavigations from "hooks/useBasicNavigations";
 import { SafeAreaView } from "react-native-safe-area-context";
 import useLinking from "hooks/useLinking";
 
 export default function PersonLinkScreen() {
-  const { navigateToback } = useBasicNavigations();
   const {
     count,
     navigateToPreferences,
