@@ -5,6 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import useTrip from "../../hooks/useTrip";
 import useBasicNavigations from "hooks/useBasicNavigations";
 import { ChevronLeft } from "lucide-react-native";
+import BarSteps from "components/BarSteps";
 
 export default function TripScreen() {
   const {
@@ -45,12 +46,7 @@ export default function TripScreen() {
       </View>
 
       {/*Step*/}
-      <View className="h-2 bg-gray-200 rounded-full mx-6 my-4 overflow-hidden">
-        <View
-          className="h-2 bg-[#003c49] rounded-full"
-          style={{ width: `${(currentStep / 4) * 100}%` }}
-        />
-      </View>
+      <BarSteps currentStep={currentStep} />
 
       {/* Trip Name */}
       <View className="mb-4">

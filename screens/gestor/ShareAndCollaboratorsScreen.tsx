@@ -4,6 +4,7 @@ import useShareAndCollaborators from "../../hooks/useShareAndCollaborators";
 import { ChevronLeft } from "lucide-react-native";
 import useBasicNavigations from "hooks/useBasicNavigations";
 import { SafeAreaView } from "react-native-safe-area-context";
+import BarSteps from "components/BarSteps";
 
 export default function AddFriendsScreen() {
   const {
@@ -35,13 +36,11 @@ export default function AddFriendsScreen() {
           Who are you? 👤
         </Text>
       </View>
+
       {/*Step*/}
-      <View className="h-2 bg-gray-200 rounded-full mx-6 my-4 overflow-hidden">
-        <View
-          className="h-2 bg-[#003c49] rounded-full"
-          style={{ width: `${(currentStep / 4) * 100}%` }}
-        />
-      </View>
+      <BarSteps currentStep={currentStep} />
+
+      {/* Subtitle */}
       <Text className="text-[#4B5563] text-base mb-6">
         <Text className="font-semibold">{count}</Text> friends have joined Nomad!
       </Text>

@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import useBasicNavigations from "../../hooks/useBasicNavigations";
 import { ChevronLeft } from "lucide-react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import BarSteps from "components/BarSteps";
 
 const preferencesData = [
   { label: "Adventure", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC1remShvn_SlUuqjKqihz8WiGrvrgwaU5NZbqQD-8352UheYtZGFnBa6cLK2ZUAiSDDAknBIvcVQHGWlCU2RIkJo2tfCw6g1yZXO5Grkn8fvCfq7a7LkSDsuqWY1gZjkgVUnacMCVBwYJspzAR6V18qEP86WQX7ArtcNwwKSIb1Ks1tQ4H8z6HtxQscDcClNJaR7yw4azQSf_Rzfe1fW3qmC2ReYXyokufVMAVQ2SlQRaJWaROmBiUOr-WoPa9llLeTMHw-zeTSDR0" },
@@ -52,12 +53,7 @@ export default function TripPreferencesScreen() {
         </View>
         
         {/*Step*/}
-        <View className="h-2 bg-gray-200 rounded-full mx-6 my-4 overflow-hidden">
-          <View
-            className="h-2 bg-[#003c49] rounded-full"
-            style={{ width: `${(currentStep / 4) * 100}%` }}
-          />
-        </View>
+        <BarSteps currentStep={currentStep} />
 
         {/* Preferences Grid */}
         <View className="flex-row flex-wrap justify-center gap-4 p-4">
