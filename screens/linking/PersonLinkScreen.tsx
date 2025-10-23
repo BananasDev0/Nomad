@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, TextInput, TouchableOpacity, FlatList, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import useLinking from "hooks/useLinking";
+import BarSteps from "components/BarSteps";
 
 export default function PersonLinkScreen() {
   const {
@@ -27,12 +28,9 @@ export default function PersonLinkScreen() {
         </View>
 
       {/*Step*/}
-      <View className="h-2 bg-gray-200 rounded-full mx-6 my-4 overflow-hidden">
-        <View
-          className="h-2 bg-[#003c49] rounded-full"
-          style={{ width: `${(currentStep / 4) * 100}%` }}
-        />
-      </View>
+      <BarSteps currentStep={currentStep} />
+      
+      {/* Subtitle */}
       <Text className="text-[#4B5563] text-base mb-6">
         <Text className="font-semibold">{count}</Text> friends have joined Nomad!
       </Text>
