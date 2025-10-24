@@ -3,6 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, FlatList, Pressable } from "re
 import { SafeAreaView } from "react-native-safe-area-context";
 import useLinking from "hooks/useLinking";
 import BarSteps from "components/BarSteps";
+import Title from "components/Title";
 
 export default function PersonLinkScreen() {
   const {
@@ -20,12 +21,7 @@ export default function PersonLinkScreen() {
   return (
     <SafeAreaView className="flex-1 bg-white p-5">
       {/* Header */}
-        <View className="relative flex-row items-center p-4">
-            {/* Título centrado */}
-            <Text className="absolute left-0 right-0 text-center text-2xl font-bold text-[#1F2937]">
-            Who are you? 👤
-            </Text>
-        </View>
+      <Title title="Who are you?" hasBackButton={false}/>
 
       {/*Step*/}
       <BarSteps currentStep={currentStep} />
