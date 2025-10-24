@@ -8,7 +8,7 @@ export default function useHome() {
     }
   
     const sendToUserScreen = () => {
-      navigation.navigate("UserScreen");
+      navigation.navigate("PlacesScreen");
     }
 
     const sendToItineraryScreen = () => {

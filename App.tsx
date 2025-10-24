@@ -11,6 +11,7 @@ import ShareLinkScreenFun from 'screens/gestor/ShareScreen';
 import PersonLinkScreen from 'screens/linking/PersonLinkScreen';
 import PreferencesLinkScreen from 'screens/linking/PreferencesLinkScreen';
 import GratefulnessScreen from 'screens/linking/GratefulnessScreen';
+import PlacesScreen from 'screens/gestor/PlacesScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +29,7 @@ export default function App() {
         <Stack.Screen name="TripPreferencesScreen" component={TripPreferencesScreen} />
         <Stack.Screen name="ShareScreen" component={ShareLinkScreenFun} />
         <Stack.Screen name="ItineraryScreen" component={ItineraryScreen} />
+        <Stack.Screen name="PlacesScreen" component={PlacesScreen} />
         <Stack.Screen name="UserScreen" component={UserScreen} />
         <Stack.Screen name="PersonLinkScreen" component={PersonLinkScreen} />
         <Stack.Screen name="PreferencesLinkScreen" component={PreferencesLinkScreen} />
