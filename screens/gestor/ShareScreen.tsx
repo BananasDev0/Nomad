@@ -5,6 +5,7 @@ import * as Clipboard from "expo-clipboard";
 import useBasicNavigations from "hooks/useBasicNavigations";
 import { ChevronLeft, Copy } from "lucide-react-native";
 import useShare from "hooks/useShare";
+import Title from "components/Title";
 
 export default function ShareLinkScreenFun() {
   const { navigateToback } = useBasicNavigations();
@@ -36,16 +37,9 @@ export default function ShareLinkScreenFun() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-white px-5 py-6 items-center">
+    <SafeAreaView className="flex-1 bg-white p-5">
       {/* Header */}
-      <View className="relative flex-row items-center w-full p-4">
-        <TouchableOpacity onPress={navigateToback} className="z-10">
-          <ChevronLeft size={28} color="#0d171b" />
-        </TouchableOpacity>
-        <Text className="absolute left-0 right-0 text-center text-2xl font-bold text-[#1F2937]">
-          Share with Friends ✨
-        </Text>
-      </View>
+      <Title title="Share with Friends ✨" />
 
       {/* Description */}
       <Text className="text-center text-base text-[#4B5563] my-6 px-4">
@@ -66,6 +60,7 @@ export default function ShareLinkScreenFun() {
       <Animated.View
         style={{
           marginTop: 20,
+          alignSelf: 'center',
           transform: [{ scale: scaleAnim }],
         }}
       >

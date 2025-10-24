@@ -1,8 +1,6 @@
 import React from "react";
 import { View, Text, TextInput, TouchableOpacity, FlatList, Pressable } from "react-native";
 import useShareAndCollaborators from "../../hooks/useShareAndCollaborators";
-import { ChevronLeft } from "lucide-react-native";
-import useBasicNavigations from "hooks/useBasicNavigations";
 import { SafeAreaView } from "react-native-safe-area-context";
 import BarSteps from "components/BarSteps";
 import Title from "components/Title";
@@ -21,7 +19,6 @@ export default function AddFriendsScreen() {
     handleSelectFriend,
     currentStep
   } = useShareAndCollaborators();
-  const { navigateToback } = useBasicNavigations();
 
   return (
     <SafeAreaView className="flex-1 bg-white p-5">
