@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { View, Text, ScrollView, TouchableOpacity, ImageBackground, Pressable } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import useBasicNavigations from "../../hooks/useBasicNavigations";
-import { ChevronLeft } from "lucide-react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import BarSteps from "components/BarSteps";
 import Title from "components/Title";
@@ -19,7 +17,6 @@ const preferencesData = [
 ];
 
 export default function PreferencesLinkScreen() {
-  const { navigateToback } = useBasicNavigations();
   const navigation = useNavigation<any>();
   const [currentStep] = useState(3);
 

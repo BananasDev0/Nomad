@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, Animated, Easing, Alert, Pressable } from
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as Clipboard from "expo-clipboard";
 import useBasicNavigations from "hooks/useBasicNavigations";
-import { ChevronLeft, Copy } from "lucide-react-native";
+import { Copy } from "lucide-react-native";
 import useShare from "hooks/useShare";
 import Title from "components/Title";
 

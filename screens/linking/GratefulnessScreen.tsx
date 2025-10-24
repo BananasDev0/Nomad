@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, TouchableOpacity, Animated, Easing } from "react-native";
+import { Text, TouchableOpacity, Animated, Easing } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ChevronLeft } from "lucide-react-native";
-import useBasicNavigations from "hooks/useBasicNavigations";
 import useShare from "hooks/useShare";
 import Title from "components/Title";
 
 export default function GratefulnessScreen() {
-  const { navigateToback } = useBasicNavigations();
   const { navigateToHome } = useShare();
 
   const [scaleAnim] = useState(new Animated.Value(0));

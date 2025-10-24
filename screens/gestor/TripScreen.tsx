@@ -3,8 +3,6 @@ import { View, Text, TextInput, Switch, TouchableOpacity, Pressable } from "reac
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { SafeAreaView } from "react-native-safe-area-context";
 import useTrip from "../../hooks/useTrip";
-import useBasicNavigations from "hooks/useBasicNavigations";
-import { ChevronLeft } from "lucide-react-native";
 import BarSteps from "components/BarSteps";
 import Title from "components/Title";
 
@@ -29,7 +27,6 @@ export default function TripScreen() {
     sendToShareAndCollaboratorsScreen,
     currentStep
   } = useTrip();
-  const { navigateToback } = useBasicNavigations();
 
   return (
     <SafeAreaView className="flex-1 bg-white px-5 py-6">
