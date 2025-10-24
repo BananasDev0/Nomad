@@ -65,13 +65,8 @@ export default function PreferencesLinkScreen() {
             </TouchableOpacity>
           ))}
         </View>
-
-        {/* <TouchableOpacity 
-          className="bg-[#003c49] rounded-xl py-4 p6 mx-4 mt-4"
-          onPress={sendToGrateFulness}
-        >
-          <Text className="text-white text-center font-bold text-lg">Upload Info</Text>
-        </TouchableOpacity> */}
+        
+        {/* Button */}
         <View className="p-4">
           <StandarButton
           text="Upload Info"

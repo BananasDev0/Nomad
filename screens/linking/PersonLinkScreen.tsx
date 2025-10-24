@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import useLinking from "hooks/useLinking";
 import BarSteps from "components/BarSteps";
 import Title from "components/Title";
+import SelectableButton from "components/SelectableButton";
 
 export default function PersonLinkScreen() {
   const {
@@ -75,17 +76,11 @@ export default function PersonLinkScreen() {
 
 
       {/* Create trip button */}
-      <TouchableOpacity
-        className={`mt-6 p-4 rounded-2xl items-center mb-10 ${
-          selectedFriend ? "bg-[#003c49]" : "bg-[#D1D5DB]"
-        }`}
-        disabled={!selectedFriend}
-        onPress={navigateToPreferences}
-      >
-        <Text className={`text-lg font-bold text-center ${selectedFriend ? "text-white" : "text-[#374151]"}`}>
-          {selectedFriend ? "Create Trip" : "Select who you are first"}
-        </Text>
-      </TouchableOpacity>
+      <SelectableButton
+        enabled={!!selectedFriend}
+        text="Create Trip"
+        action={navigateToPreferences}
+      />
     </SafeAreaView>
   );
 }

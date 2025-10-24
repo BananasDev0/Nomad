@@ -69,13 +69,6 @@ export default function ShareLinkScreenFun() {
       </Animated.View>
 
       {/* Done Button */}
-      {/* <TouchableOpacity
-        className="bg-[#003c49] rounded-xl py-4 px-12 mt-10"
-        onPress={navigateToHome}
-      >
-        <Text className="text-white text-center font-bold text-lg">Done</Text>
-      </TouchableOpacity> */}
-
       <StandarButton
         text="Done"
         action={navigateToHome}

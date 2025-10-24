@@ -125,15 +125,7 @@ export default function TripScreen() {
           className="bg-[#F3F4F6] border border-[#D1D5DB] rounded-xl p-4 text-base text-[#374151]"
         />
       </View>
-
-      {/* Next Button */}
-      {/* <TouchableOpacity 
-        className="bg-[#003c49] rounded-xl py-4"
-        onPress={sendToShareAndCollaboratorsScreen}
-      >
-        <Text className="text-white text-center font-bold text-lg">Next</Text>
-      </TouchableOpacity> */}
-
+      
       <StandardButton
         text="Next"
         action={sendToShareAndCollaboratorsScreen}

@@ -4,6 +4,7 @@ import useShareAndCollaborators from "../../hooks/useShareAndCollaborators";
 import { SafeAreaView } from "react-native-safe-area-context";
 import BarSteps from "components/BarSteps";
 import Title from "components/Title";
+import SelectableButton from "components/SelectableButton";
 
 export default function AddFriendsScreen() {
   const {
@@ -87,17 +88,11 @@ export default function AddFriendsScreen() {
       />
 
       {/* Create trip button */}
-      <TouchableOpacity
-        className={`mt-6 p-4 rounded-2xl items-center mb-10 ${
-          selectedFriend ? "bg-[#003c49]" : "bg-[#D1D5DB]"
-        }`}
-        disabled={!selectedFriend}
-        onPress={() => { navigation.navigate("TripPreferencesScreen"); }}
-      >
-        <Text className={`text-lg font-bold text-center ${selectedFriend ? "text-white" : "text-[#374151]"}`}>
-          {selectedFriend ? "Create Trip" : "Select who you are first"}
-        </Text>
-      </TouchableOpacity>
+      <SelectableButton
+        enabled={!!selectedFriend}
+        text="Create Trip"
+        action={() => { navigation.navigate("TripPreferencesScreen"); }}
+      />
     </SafeAreaView>
   );
 }

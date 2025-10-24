@@ -73,12 +73,6 @@ export default function TripPreferencesScreen() {
             action={completeFirstOnboardingStep}
           />
         </View>
-        {/* <TouchableOpacity 
-          className="bg-[#003c49] rounded-xl py-4 p6 mx-4 mt-4"
-          onPress={completeFirstOnboardingStep}
-        >
-          <Text className="text-white text-center font-bold text-lg">Upload Info</Text>
-        </TouchableOpacity> */}
       </ScrollView>
     </SafeAreaView>
   );
