@@ -19,7 +19,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator 
-        initialRouteName="PersonLinkScreen" // If you dont register this prop, the first screen will be the initial route
+        initialRouteName="PlacesScreen" // If you dont register this prop, the first screen will be the initial route
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
