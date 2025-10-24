@@ -6,6 +6,7 @@ import useTrip from "../../hooks/useTrip";
 import useBasicNavigations from "hooks/useBasicNavigations";
 import { ChevronLeft } from "lucide-react-native";
 import BarSteps from "components/BarSteps";
+import Title from "components/Title";
 
 export default function TripScreen() {
   const {
@@ -33,17 +34,7 @@ export default function TripScreen() {
   return (
     <SafeAreaView className="flex-1 bg-white px-5 py-6">
       {/* Header */}
-      <View className="relative flex-row items-center p-4">
-        {/* Botón de atrás */}
-        <Pressable onPress={navigateToback} className="z-10">
-          <ChevronLeft size={28} color="#0d171b" />
-        </Pressable>
-
-        {/* Título centrado */}
-        <Text className="absolute left-0 right-0 text-center text-2xl font-bold text-[#1F2937]">
-          Create Your Trip ✈️
-        </Text>
-      </View>
+      <Title title="Create Your Trip ✈️" />
 
       {/*Step*/}
       <BarSteps currentStep={currentStep} />
