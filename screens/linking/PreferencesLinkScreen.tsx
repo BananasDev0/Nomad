@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import BarSteps from "components/BarSteps";
 import Title from "components/Title";
+import StandarButton from "components/StandardButton";
 
 const preferencesData = [
   { label: "Adventure", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC1remShvn_SlUuqjKqihz8WiGrvrgwaU5NZbqQD-8352UheYtZGFnBa6cLK2ZUAiSDDAknBIvcVQHGWlCU2RIkJo2tfCw6g1yZXO5Grkn8fvCfq7a7LkSDsuqWY1gZjkgVUnacMCVBwYJspzAR6V18qEP86WQX7ArtcNwwKSIb1Ks1tQ4H8z6HtxQscDcClNJaR7yw4azQSf_Rzfe1fW3qmC2ReYXyokufVMAVQ2SlQRaJWaROmBiUOr-WoPa9llLeTMHw-zeTSDR0" },
@@ -65,12 +66,18 @@ export default function PreferencesLinkScreen() {
           ))}
         </View>
 
-        <TouchableOpacity 
+        {/* <TouchableOpacity 
           className="bg-[#003c49] rounded-xl py-4 p6 mx-4 mt-4"
           onPress={sendToGrateFulness}
         >
           <Text className="text-white text-center font-bold text-lg">Upload Info</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
+        <View className="p-4">
+          <StandarButton
+          text="Upload Info"
+          action={sendToGrateFulness}
+          />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );

@@ -6,6 +6,7 @@ import useBasicNavigations from "hooks/useBasicNavigations";
 import { Copy } from "lucide-react-native";
 import useShare from "hooks/useShare";
 import Title from "components/Title";
+import StandarButton from "components/StandardButton";
 
 export default function ShareLinkScreenFun() {
   const { navigateToback } = useBasicNavigations();
@@ -68,12 +69,17 @@ export default function ShareLinkScreenFun() {
       </Animated.View>
 
       {/* Done Button */}
-      <TouchableOpacity
+      {/* <TouchableOpacity
         className="bg-[#003c49] rounded-xl py-4 px-12 mt-10"
         onPress={navigateToHome}
       >
         <Text className="text-white text-center font-bold text-lg">Done</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
+
+      <StandarButton
+        text="Done"
+        action={navigateToHome}
+      />
     </SafeAreaView>
   );
 }

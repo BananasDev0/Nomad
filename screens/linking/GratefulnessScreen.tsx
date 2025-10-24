@@ -3,6 +3,7 @@ import { Text, TouchableOpacity, Animated, Easing } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import useShare from "hooks/useShare";
 import Title from "components/Title";
+import StandarButton from "components/StandardButton";
 
 export default function GratefulnessScreen() {
   const { navigateToHome } = useShare();
@@ -42,14 +43,18 @@ export default function GratefulnessScreen() {
       </Animated.View>
 
       {/* Done Button */}
-      <TouchableOpacity
+      {/* <TouchableOpacity
         className="bg-[#003c49] rounded-xl py-4 px-12 mt-12"
         onPress={navigateToHome}
       >
         <Text className="text-white text-center font-bold text-lg">
           Go Home
         </Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
+      <StandarButton
+        text="Go Home"
+        action={navigateToHome}
+      />
     </SafeAreaView>
   );
 }

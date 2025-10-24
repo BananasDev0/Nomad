@@ -5,6 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import useTrip from "../../hooks/useTrip";
 import BarSteps from "components/BarSteps";
 import Title from "components/Title";
+import StandardButton from "components/StandardButton";
 
 export default function TripScreen() {
   const {
@@ -126,12 +127,17 @@ export default function TripScreen() {
       </View>
 
       {/* Next Button */}
-      <TouchableOpacity 
+      {/* <TouchableOpacity 
         className="bg-[#003c49] rounded-xl py-4"
         onPress={sendToShareAndCollaboratorsScreen}
       >
         <Text className="text-white text-center font-bold text-lg">Next</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
+
+      <StandardButton
+        text="Next"
+        action={sendToShareAndCollaboratorsScreen}
+      />
 
       {/* Date Pickers */}
       <DateTimePickerModal
